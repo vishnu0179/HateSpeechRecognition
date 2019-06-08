@@ -38,7 +38,7 @@ def rec():
     return audio
 
 
-def under(buff):
+def process_speech(buff):
     i = 1
     x_axis = []
     y_axis = []
@@ -60,7 +60,7 @@ def under(buff):
 
 if __name__ == "__main__":
     buff = multiprocessing.Queue()
-    proc = multiprocessing.Process(target=under, args=(buff,))
+    proc = multiprocessing.Process(target=process_speech, args=(buff,))
     proc.start()
     while True:
         buff.put(rec())
