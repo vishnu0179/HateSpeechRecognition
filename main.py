@@ -8,6 +8,7 @@ from pyAudioAnalysis import audioBasicIO
 from pyAudioAnalysis import audioSegmentation as aS
 import speech_recognition as sr
 import scipy.io.wavfile as wavfile
+import subprocess
 import sys
 
 
@@ -98,6 +99,19 @@ def rec_from_file():
         ff = './data/' + f
         os.remove(ff)
 
+def rec_from_video():
+    try:
+        fileName = sys.argv[2]
+        print("sys.argv[2]: " + fileName)
+    except:
+        print("usage: ./main video <filename>")
+
+    command = "ffmpeg -i " + fileName + " -ab 160k -ac 2 -ar 44100 -vn ./audio.wav"
+    subprocess.call(command, shell=True) 
+    sys.argv[2] = "./audio.wav"
+    rec_from_file()
+    os.remove('./audio.wav')
+    
 
 def rec_from_mic():
     while True:
@@ -107,7 +121,8 @@ def rec_from_mic():
 def choose_task_and_execute(command):
     tasks = {
                 'mic' : rec_from_mic,
-                'file' : rec_from_file
+                'file' : rec_from_file,
+                'video' : rec_from_video
             }
 
     tasks[command]()
