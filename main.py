@@ -34,7 +34,7 @@ def get_audio_from_file(inputFile):
         audio = r.record(source)
     return audio
 
-def hatepercent(text):
+def get_hatepercent(text):
     sonar = hs.Sonar()
     x = sonar.ping(text=text)
     return x['classes'][0]['confidence'] + x['classes'][1]['confidence']
@@ -74,7 +74,7 @@ def process_speech(buff):
         except:
             print("Sorry, didn't caught that, try again")
             x = ""
-        hate = hatepercent(x)
+        hate = get_hatepercent(x)
         x_axis.append(i)
         y_axis.append(hate)
         hplot(x_axis, y_axis)
