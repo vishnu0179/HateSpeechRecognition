@@ -37,14 +37,14 @@ def get_audio_from_file(inputFile):
 def hatepercent(text):
     sonar = hs.Sonar()
     x = sonar.ping(text=text)
-    return x['classes'][0]['confidence']
+    return x['classes'][0]['confidence'] + x['classes'][1]['confidence']
 
 
 def hplot(x_list, y_list):
     try:
-        if y_list[-1] < 0.2:
+        if y_list[-1] < 0.5:
             col = 'green'
-        elif y_list[-1] < 0.4:
+        elif y_list[-1] < 0.8:
             col = 'orange'
         else: col = 'red'
     except:
