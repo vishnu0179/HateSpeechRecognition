@@ -16,7 +16,7 @@ mic.CHUNK = 4096
 r = sr.Recognizer()
 
 def splitAudio(inputFile):
-    TIME_FRAME = 10
+    TIME_FRAME = 5
     if not os.path.isfile(inputFile):
         raise Exception("Input audio file not found!")
 
@@ -31,7 +31,7 @@ def splitAudio(inputFile):
         t2 = min((marker + TIME_FRAME) , duration) * 1000
         newAudio = AudioSegment.from_wav('audio.wav')
         newAudio = newAudio[t1:t2]
-        exportfName = 'data/audio_part' + str(i) + '.wav'
+        exportfName = './data/' + str(i) + '.wav'
         newAudio.export(exportfName , format = 'wav')
         marker += TIME_FRAME
         i += 1
@@ -99,9 +99,13 @@ def rec_from_file():
 
     splitAudio(fileName)
     audio_file_list = os.listdir('./data/')
-    audio_file_list.sort()
-    for f in audio_file_list:
-        ff = './data/' + f
+    rFileList = []
+    for x in audio_file_list:
+        rFileList.append(int(x[:-4]))
+
+    rFileList.sort()
+    for f in rFileList:
+        ff = './data/' + str(f) + '.wav'
         buff.put(get_audio_from_file(ff))
 
     buff.put("END")
