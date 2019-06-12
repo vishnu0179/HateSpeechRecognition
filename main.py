@@ -4,29 +4,37 @@ import hatesonar as hs
 import matplotlib.pyplot as plt
 import multiprocessing
 import os
-from pyAudioAnalysis import audioBasicIO
-from pyAudioAnalysis import audioSegmentation as aS
+from pydub import AudioSegment
 import speech_recognition as sr
 import scipy.io.wavfile as wavfile
 import subprocess
 import sys
-
+import wave
 
 mic = sr.Microphone()
 mic.CHUNK = 4096
 r = sr.Recognizer()
 
-
 def splitAudio(inputFile):
+    TIME_FRAME = 10
     if not os.path.isfile(inputFile):
         raise Exception("Input audio file not found!")
 
-    [fs, x] = audioBasicIO.readAudioFile(inputFile)
-    segmentLimits = aS.silenceRemoval(x, fs, 0.05, 0.05,
-                                      1.0, 0.3, False)
-    for i, s in enumerate(segmentLimits):
-        strOut = "./data/audio_{0:.3f}-{1:.3f}.wav".format(s[0], s[1])
-        wavfile.write(strOut, fs, x[int(fs * s[0]):int(fs * s[1])])
+    wav_input_file = wave.open(inputFile)
+    duration = wav_input_file.getnframes() / wav_input_file.getframerate()
+    wav_input_file.close()
+
+    marker = 0
+    i = 0
+    while marker < duration:
+        t1 = marker * 1000
+        t2 = min((marker + TIME_FRAME) , duration) * 1000
+        newAudio = AudioSegment.from_wav('audio.wav')
+        newAudio = newAudio[t1:t2]
+        exportfName = 'data/audio_part' + str(i) + '.wav'
+        newAudio.export(exportfName , format = 'wav')
+        marker += TIME_FRAME
+        i += 1
 
 def get_audio_from_file(inputFile):
     audioFile = sr.AudioFile(inputFile)
@@ -51,7 +59,7 @@ def hplot(x_list, y_list):
         col = 'green'
     plt.plot(x_list, y_list, color = col)
     plt.ylabel("hate %")
-    plt.xlabel("phrase number")
+    plt.xlabel("time -->")
     plt.draw()
     plt.pause(0.05)
 
@@ -66,8 +74,8 @@ def process_speech(buff):
     i = 1
     x_axis = []
     y_axis = []
-    while True:
-        audio = buff.get()
+    audio = buff.get()
+    while type(audio) != type("string"):
         try:
             x = r.recognize_google(audio)
             print(x)
@@ -79,6 +87,7 @@ def process_speech(buff):
         y_axis.append(hate)
         hplot(x_axis, y_axis)
         i += 1
+        audio = buff.get()
     plt.show()
 
    
@@ -94,7 +103,8 @@ def rec_from_file():
     for f in audio_file_list:
         ff = './data/' + f
         buff.put(get_audio_from_file(ff))
-        
+
+    buff.put("END")
     for f in audio_file_list:
         ff = './data/' + f
         os.remove(ff)
