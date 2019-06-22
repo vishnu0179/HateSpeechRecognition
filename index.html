@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css" >
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.js" ></script>
     <title>Document</title>
 </head>
 <body>
-    <form action="/result" method="POST">
+    <!--<form action="/result" method="POST">
         <div class="form-group">
             <label for="first_name" class="col-form-label ">First Name</label>
             <input type="text" class="form-control" id="first_name" name="first_name">
@@ -24,6 +29,45 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-    </form>
+    </form>-->
+    <nav class="navbar navbar-expand-sm bg-dark sticky-top">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Dataset </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Services
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="useranalysis.html">User Analysis</a>
+                    <a class="dropdown-item" href="hashtag.html">Hashtag Analysis</a>
+                    <a class="dropdown-item" href="#">Randi Services</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+        </ul>
+        <span class="navbar-text" style="color:blanchedalmond; " >
+            About Us    
+        </span>
+      </nav>
+
+        <div class="container">
+            <div class="row">
+                <img src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" 
+                    alt="twitter-logo" 
+                    style="width:150px; height:150px;">
+            </div>
+            <div class="row">
+                <h1>HATE SPEECH ANALYSIS</h1>
+            </div>
+        </div>
+
+
 </body>
 </html>

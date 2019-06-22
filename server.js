@@ -15,6 +15,10 @@ app.post('/result', (req,res)=>{
     })
 })
 
+app.get('/tweets',(req,res)=>{
+    res.redirect('/tweets.txt')
+})
+
 app.listen(3000,()=>{
     console.log('Server started on port 3000')
 })
