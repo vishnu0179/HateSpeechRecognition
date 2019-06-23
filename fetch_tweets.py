@@ -2,13 +2,13 @@
 from tweepy import OAuthHandler
 from tweepy import API
 from tweepy import Cursor
-from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk.stem import WordNetLemmatizer
-from nltk import tokenize
+# from sklearn.feature_extraction.text import TfidfVectorizer
+# from nltk.stem import WordNetLemmatizer
+# from nltk import tokenize
 import numpy as np
 import pandas as pd
 import re
-import joblib
+# import joblib
 import sys
 
 
@@ -67,9 +67,10 @@ if __name__ == '__main__':
     twitter_client = twitterClient()
     api = twitter_client.get_twitter_client_api()
     tweet_analyzer = tweetAnalyzer()
-    tweets = api.user_timeline(screen_name=sys.argv[1],count=200	,tweet_mode="extended")
+    tweets = api.user_timeline(screen_name=sys.argv[1],count=200,tweet_mode="extended")
     df= tweet_analyzer.tweets_to_data_frame(tweets)
-    # print(df.head(10))
+    df.to_csv('handler_df.csv')
+    print(df.head(10))
 
     # tw_model=joblib.load('Model')
     # vect = joblib.load('vect')
