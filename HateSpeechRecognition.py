@@ -2,6 +2,7 @@ import tweepy
 import os
 import jsonpickle
 import sys
+from fetch_tweets import tweetAnalyzer
 
 api_key = 'IgvYuzdJzJHWHSGiubz98UGoe'
 api_secret = 'XtFcOGOOVO4rtFHgByIPUYqLt0W9VlkwqfDTAjZovkyvVFqBfl'
@@ -17,7 +18,7 @@ if(not api):
 choice = 1
 if(choice == 1):
     searchQuery = 'trump'  # this is what we're searching for
-    maxTweets =200 
+    maxTweets =100 
     tweetsPerQry = 50
     fName = 'tweets1.txt'
     tweet_count = 0
@@ -41,15 +42,9 @@ if(choice == 1):
             if not new_tweets:
                 print("No more Tweets found")
                 break
-            for tweet in new_tweets:
-                f.write(jsonpickle.encode(tweet._json, unpicklable = False) +'\n')
-                tweet = jsonpickle.encode(tweet._json, unpicklable = False)
-                t = json.loads(tweet)
-                if('retweeted_status' in t):
-                    print(t.get('retweeted_status').get('full_text'))
-                else:
-                    print(t.get('full_text'))
             tweet_count += len(new_tweets)
             maxId = new_tweets[-1].id    
-            print('Downloaded {0} tweets'.format(tweet_count))
 
+df=tweetAnalyzer().tweets_to_data_frame(tweets=new_tweets)
+df.to_csv('hashtagt_df.csv')
+print(df.head())
