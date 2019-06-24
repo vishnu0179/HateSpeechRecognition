@@ -51,12 +51,14 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <form action="/user" method="POST">
+                    <form action="/useranalysis" method="POST">
                         <div class="form-group">
                             <label for="name">Enter User Handle</label>
-                            <input type="text" id="name" class="form-control">
+                            <input type="text" id="name" name="name" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary">Analyse Tweets</button>
+                        <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Analyse Tweets</button>
+                        </div>
                     </form>
                 </div>
                 <div  class="col-6 text-right" id="tweet-div" style=" display: none; ">
