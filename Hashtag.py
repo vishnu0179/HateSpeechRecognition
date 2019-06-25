@@ -4,6 +4,7 @@ import jsonpickle
 import pandas
 import sys
 import json
+from fetchtweets import tweetAnalyzer
 
 api_key = 'IgvYuzdJzJHWHSGiubz98UGoe'
 api_secret = 'XtFcOGOOVO4rtFHgByIPUYqLt0W9VlkwqfDTAjZovkyvVFqBfl'
@@ -43,12 +44,13 @@ if(choice == 1):
             tweet = jsonpickle.encode(tweet._json, unpicklable = False)
             t = json.loads(tweet)
             if('retweeted_status' in t):
-                pTweet.append(t.get('retweeted_status').get('full_text'))
+                pTweet.append(tweetAnalyzer().clean_tweet(t.get('retweeted_status').get('full_text')))
             else:
-                pTweet.append(t.get('full_text'))
+                pTweet.append(tweetAnalyzer().clean_tweet(t.get('full_text')))
         tweet_count += len(new_tweets)
         maxId = new_tweets[-1].id    
         #print('Downloaded {0} tweets'.format(tweet_count))
+    
     df= pandas.DataFrame(data=pTweet, columns=['tweet'])
     #df=tweetAnalyzer().tweets_to_data_frame(tweets=new_tweets)
     df.to_csv('hashtagt_df.csv')
