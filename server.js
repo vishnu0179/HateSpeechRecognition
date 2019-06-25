@@ -18,7 +18,7 @@ app.post('/hashtag', (req,res)=>{
 app.post('/useranalysis', (req,res)=>{
     let UAprocess = spawn('python3', ["./fetchtweets.py", req.body.name])
     console.log(req.body.name)
-    console.log('spawnde the process')
+    console.log('spawned the process')
     UAprocess.stdout.on('data', (data)=> {
         console.log('fetched data')
         res.send(data.toString())
@@ -29,6 +29,6 @@ app.get('/tweets',(req,res)=>{
     res.redirect('/tweets.txt')
 })
 
-app.listen(3001,()=>{
-    console.log('Server started on port 3000')
+app.listen(8080,()=>{
+    console.log('Server started on port 8080')
 })
