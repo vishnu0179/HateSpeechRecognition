@@ -8,7 +8,7 @@ app.use('/',express.static(__dirname))
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.post('/hashtag', (req,res)=>{
-    let HTprocess = spawn('python', ["./HateSpeechRecognition.py", req.body.hashtag , req.body.tweetCount ])
+    let HTprocess = spawn('python', ["./Hashtag.py", req.body.hashtag , req.body.tweetCount ])
 
     HTprocess.stdout.on('data', (data)=> {
         res.send(data.toString())
