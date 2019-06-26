@@ -2,9 +2,6 @@
 from tweepy import OAuthHandler
 from tweepy import API
 from tweepy import Cursor
-from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk.stem import WordNetLemmatizer
-from nltk import tokenize
 import numpy as np
 import pandas as pd
 import re
@@ -59,6 +56,7 @@ class tweetAnalyzer():
             data=[tweet.created_at for tweet in tweets], columns=['date'])
         df['tweet'] = np.array(
             [tweetAnalyzer().clean_tweet(tweet.full_text) for tweet in tweets])
+        df['dirty_tweet'] = np.array([tweet.full_text for tweet in tweets])
         #df['retweets'] = np.array([tweet.retweet_count for tweet in tweets])
         #df['likes'] = np.array([tweet.favorite_count for tweet in tweets])
         #df['source'] = np.array([tweet.source for tweet in tweets])
@@ -70,15 +68,16 @@ if __name__ == '__main__':
     twitter_client = twitterClient()
     api = twitter_client.get_twitter_client_api()
     tweet_analyzer = tweetAnalyzer()
-    tweets = api.user_timeline(
-        screen_name=sys.argv[1], count=200	, tweet_mode="extended")
+    tweets = api.user_timeline(screen_name=sys.argv[1], count=200, tweet_mode="extended")
     df = tweet_analyzer.tweets_to_data_frame(tweets)
-    open('userTweets.csv', 'w')
+    t_df = df['dirty_tweet']
     df.to_csv('userTweets.csv')
+    np.savetxt('u_Tweets.txt',t_df.values,fmt='%s')
     print('Done')
+    # print(df.head(10))
     sys.stdout.flush()
 
-    # print(df.head(10))
+    
 
     # tw_model=joblib.load('Model')
     # vect = joblib.load('vect')
