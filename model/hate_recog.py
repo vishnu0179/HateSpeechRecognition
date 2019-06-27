@@ -22,8 +22,8 @@ class our_model():
     
     def __init__(self):
         
-        model = os.path.join(os.getcwd(),'model2')
-        vector = os.path.join(os.getcwd(),'vector2')
+        model = os.path.join(os.getcwd(),'model/model2')
+        vector = os.path.join(os.getcwd(),'model/vector2')
         self.estimator = joblib.load(model)
         self.preprocessor = joblib.load(vector)
         self.sw = set(stopwords.words('english'))    # all english stopwords as
@@ -109,6 +109,7 @@ class our_model():
         removes url hashtags @ symbols whitespaces
         
         """
+        
         
         file['tweet'] = [''.join(     [WordNetLemmatizer().lemmatize(   re.sub('[^A-Za-z]',' ',text  )     ) for text in lis     ]      )      for lis in file['tweet']       ]
         a=[]
