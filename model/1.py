@@ -7,13 +7,14 @@ print('begining')
 
 hey=our_model()
 print('model')
-hey.get_input('i hate you')
+#hey.get_input('i hate you')
 #hey.get_input('i dont hate you')
 #hey.get_input('i don\'t hate you')
 #hey.get_input('i like you')
 #hey.get_input('fuck you bitch')
 #hey.get_input('hey what are you doing')
 print('csv\n')
-f= pd.read_csv(r'C:/users/amanr/desktop/labeled_data.csv')
+f= pd.read_csv(r'../hashtagt_df.csv')
+
 hey.get_csv(f)
 

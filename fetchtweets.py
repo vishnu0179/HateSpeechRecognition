@@ -9,6 +9,8 @@ import joblib
 import sys
 
 
+from model.hate_recog import our_model
+
 import KEYS_TOKENS
 
 
@@ -72,8 +74,12 @@ if __name__ == '__main__':
     df = tweet_analyzer.tweets_to_data_frame(tweets)
     t_df = df['dirty_tweet']
     df.to_csv('userTweets.csv')
-    np.savetxt('u_Tweets.txt',t_df.values,fmt='%s')
-    print('Done')
+    #np.savetxt('u_Tweets.txt',t_df.values,fmt='%s')
+    print('Done')  
+    hey=our_model()
+    hey.get_csv(df)
+    print('done')
+
     # print(df.head(10))
     sys.stdout.flush()
 
