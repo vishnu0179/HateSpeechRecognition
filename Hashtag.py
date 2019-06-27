@@ -53,7 +53,6 @@ if(choice == 1):
     #df=tweetAnalyzer().tweets_to_data_frame(tweets=new_tweets)
     df.to_csv('hashtagt_df.csv')
     df.head(10)
-
     print('Tweets Fetched')
     sys.stdout.flush()
 
