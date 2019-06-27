@@ -1,9 +1,10 @@
 import tweepy
-import os
+# import os
 import jsonpickle
 import pandas
 import sys
 import json
+from numpy import savetxt
 from fetchtweets import tweetAnalyzer
 
 api_key = 'IgvYuzdJzJHWHSGiubz98UGoe'
@@ -25,7 +26,8 @@ if(choice == 1):
     tweet_count = 0
     
     sinceId = None
-    pTweet=[]
+    cTweet = []
+    dTweet = []
     maxId = -1000000    
     
     while tweet_count < maxTweets:
@@ -44,17 +46,23 @@ if(choice == 1):
             tweet = jsonpickle.encode(tweet._json, unpicklable = False)
             t = json.loads(tweet)
             if('retweeted_status' in t):
-                pTweet.append(tweetAnalyzer().clean_tweet(t.get('retweeted_status').get('full_text')))
+                cTweet.append(tweetAnalyzer().clean_tweet(t.get('retweeted_status').get('full_text')))
+                dTweet.append(t.get('retweeted_status').get('full_text'))
             else:
-                pTweet.append(tweetAnalyzer().clean_tweet(t.get('full_text')))
+                cTweet.append(tweetAnalyzer().clean_tweet(t.get('full_text')))
+                dTweet.append(t.get('full_text'))
         tweet_count += len(new_tweets)
         maxId = new_tweets[-1].id    
         #print('Downloaded {0} tweets'.format(tweet_count))
     
-    df= pandas.DataFrame(data=pTweet, columns=['tweet'])
+    df= pandas.DataFrame(data =cTweet, columns= ['cleaned_tweet'])
+    t_df= pandas.DataFrame(data= dTweet, columns =['tweets'])
+
     #df=tweetAnalyzer().tweets_to_data_frame(tweets=new_tweets)
     df.to_csv('hashtagt_df.csv')
-    df.head(10)
+    savetxt('h_Tweets.txt',t_df.values,fmt='%s')
+
+    # df.head(10)
 
     print('Tweets Fetched')
     sys.stdout.flush()
