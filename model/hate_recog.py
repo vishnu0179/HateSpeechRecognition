@@ -156,8 +156,6 @@ class our_model():
         plt.axis('equal')
         
         plt.tight_layout()
-        print('PIE PLOT')
-        plt.show()
         fig.savefig('plot.jpeg')
        
         

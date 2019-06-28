@@ -38,7 +38,7 @@ app.post('/hashtag', (req,res)=>{
             layout:false,
             display: 'inline-block',
             status: 'Tweets Fetched',
-            imgPath:'../images/hgraph.jpg'
+            imgPath:'../plot.jpeg'
         })
     })
 })
@@ -52,7 +52,7 @@ app.post('/userpredict', (req,res)=>{
         res.render('useranalysis', {
             layout:false,
             status : 'Tweets Fetched',
-            imgPath : '../images/ugraph.jpg',
+            imgPath : '../plot.jpeg',
             display: 'inline-block'
         })
     })

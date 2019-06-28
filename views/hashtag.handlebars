@@ -12,7 +12,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.js" ></script>
 
-    <title>Document</title>
+    <title>Hashtag Analysis</title>
 </head>
 <body>
         <nav class="navbar navbar-expand-sm bg-dark sticky-top">
@@ -21,7 +21,7 @@
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Dataset </a>
+                    <a class="nav-link" href="../train_E6oV3lV.csv"> Dataset </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -33,13 +33,7 @@
                         
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
             </ul>
-            <span class="navbar-text" style="color:blanchedalmond; " >
-                About Us    
-            </span>
         </nav>   
         
         <div class="container">
@@ -64,14 +58,17 @@
                 </div>
                 <div  class="col-6 text-right" id="tweet-div" style="display:{{display}} ">
                     <h3>{{status}}</h3>
-                    <button class="btn btn-primary"> Show Tweets</button>
+                    <a href="h_Tweets.txt">
+                        <button class="btn btn-primary"> Show Tweets</button>
+                    </a>
+                    
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-6">
                     <div class="result-div" style="display:{{display}}">
                         <h3>Result: </h3>
-                        <img src="{{imgPath}}" alt="result" width="150px">
+                        <img src="{{imgPath}}" alt="result" width="450px">
                     </div>
                 </div>
             </div>
