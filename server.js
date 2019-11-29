@@ -71,6 +71,6 @@ app.post('/userpredict', (req,res)=>{
     res.render('index')
 })*/
 
-app.listen(8080,()=>{
+app.listen(8080||process.env.PORT   ,()=>{
     console.log('Server started on port 8080')
 })
