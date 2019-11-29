@@ -61,7 +61,7 @@ if(choice == 1):
 
     #df=tweetAnalyzer().tweets_to_data_frame(tweets=new_tweets)
     df.to_csv('hashtagt_df.csv')
-    savetxt('h_Tweets.txt',t_df.values,fmt='%s')
+    savetxt('./public/h_Tweets.txt',t_df.values,fmt='%s')
     
     hey =our_model()
     hey.get_csv(df)

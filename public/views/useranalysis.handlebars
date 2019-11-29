@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css" >
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.js" ></script>
 
-    <title>Hashtag Analysis</title>
+    <title>User Analysis</title>
 </head>
 <body>
         <nav class="navbar navbar-expand-sm bg-dark sticky-top">
@@ -21,44 +22,42 @@
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../train_E6oV3lV.csv"> Dataset </a>
+                    <a class="nav-link" href="../input/train_E6oV3lV.csv"> Dataset </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                         Services
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/useranalysis">User Analysis</a>
-                        <a class="dropdown-item" >Hashtag Analysis</a>
-                        
+                        <a class="dropdown-item" >User Analysis</a>
+                        <a class="dropdown-item" href="/hashtag">Hashtag Analysis</a>
+                       
                     </div>
                 </li>
             </ul>
-        </nav>   
-        
+        </nav>
+
         <div class="container">
             <div class="row">
                 <div class="col-12 mt-3">
-                    <h2 style="text-align: center;"> Hashtag Analysis</h2>
+                    <h2 style="text-align: center;" >User Analysis</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <form action="/hashtag" method="POST">
+                    <form action="/userpredict" method="POST">
                         <div class="form-group">
-                            <label for="hashtag" >Enter the Keyword</label>
-                            <input type="text" name="hashtag" class="form-control" required>
+                            <label for="name">Enter User Handle</label>
+                            <input type="text" id="name" name="name" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="tweetCount" >No. of Tweets</label>
-                            <input type="Number" name="tweetCount" id="tweetCount" class="form-control" placeholder="Upto 10K">
+                                <button type="submit" class="btn btn-primary">Analyse Tweets</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Analyse</button>
                     </form>
                 </div>
-                <div  class="col-6 text-right" id="tweet-div" style="display:{{display}} ">
+                <div  class="col-6 text-right" id="tweet-div" style=" display: {{display}} ">
                     <h3>{{status}}</h3>
-                    <a href="h_Tweets.txt">
+                    <a href="/u_Tweets.txt">
                         <button class="btn btn-primary"> Show Tweets</button>
                     </a>
                     
@@ -66,6 +65,7 @@
             </div>
             <div class="row mt-4">
                 <div class="col-6">
+                    
                     <div class="result-div" style="display:{{display}}">
                         <h3>Result: </h3>
                         <img src="{{imgPath}}" alt="result" width="450px">

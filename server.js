@@ -2,13 +2,14 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 let spawn = require('child_process').spawn;
+const path = require('path')
 
 const exphbs = require('express-handlebars')
 
-app.use('/',express.static(__dirname))
+app.use('/',express.static(path.join(__dirname,'public')))
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.set('views', __dirname + '/views')
+app.set('views', __dirname + '/public/views')
 app.engine('handlebars', exphbs())
 app.set('view engine','handlebars')
 
