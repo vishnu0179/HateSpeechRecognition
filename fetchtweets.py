@@ -74,7 +74,7 @@ if __name__ == '__main__':
     df = tweet_analyzer.tweets_to_data_frame(tweets)
     t_df = df['dirty_tweet']
     df.to_csv('userTweets.csv')
-    #np.savetxt('u_Tweets.txt',t_df.values,fmt='%s')
+    np.savetxt('./public/u_Tweets.txt',t_df.values,fmt='%s')
     print('Done')  
     hey=our_model()
     hey.get_csv(df)

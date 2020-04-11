@@ -3,17 +3,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot  as plt
 import os
-from sklearn.externals import joblib
+import joblib
 import nltk.corpus
 from nltk.stem import WordNetLemmatizer
 from nltk import tokenize
 from nltk.tokenize import sent_tokenize,word_tokenize
 from nltk.corpus import stopwords
 import re
-
-
-
-
 
 
 
@@ -52,15 +48,14 @@ class our_model():
         
     def get_csv(self,file):
         """
-        TAKES INPUT IN CSV FILE AND PREDICTS AND PLOT 
+        TAKES INPUT AS CSV FILE AND PREDICTS AND PLOT 
         
         """
         
         
         # for cleaning the file
         
-        file=self.cleaning(file)  
-        
+        file = self.cleaning(file)  
         
         
         vector =self.preprocessor.transform(file['tweet'])
@@ -156,9 +151,7 @@ class our_model():
         plt.axis('equal')
         
         plt.tight_layout()
-        print('PIE PLOT')
-        plt.show()
-        fig.savefig('plot.jpeg')
+        fig.savefig('./public/plot.jpeg')
        
         
 

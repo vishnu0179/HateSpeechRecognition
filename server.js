@@ -2,13 +2,14 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 let spawn = require('child_process').spawn;
+const path = require('path')
 
 const exphbs = require('express-handlebars')
 
-app.use('/',express.static(__dirname))
+app.use('/',express.static(path.join(__dirname,'public')))
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.set('views', __dirname + '/views')
+app.set('views', __dirname + '/public/views')
 app.engine('handlebars', exphbs())
 app.set('view engine','handlebars')
 
@@ -38,7 +39,7 @@ app.post('/hashtag', (req,res)=>{
             layout:false,
             display: 'inline-block',
             status: 'Tweets Fetched',
-            imgPath:'../images/hgraph.jpg'
+            imgPath:'../plot.jpeg'
         })
     })
 })
@@ -52,7 +53,7 @@ app.post('/userpredict', (req,res)=>{
         res.render('useranalysis', {
             layout:false,
             status : 'Tweets Fetched',
-            imgPath : '../images/ugraph.jpg',
+            imgPath : '../plot.jpeg',
             display: 'inline-block'
         })
     })
@@ -70,6 +71,6 @@ app.post('/userpredict', (req,res)=>{
     res.render('index')
 })*/
 
-app.listen(8080,()=>{
+app.listen(8080||process.env.PORT   ,()=>{
     console.log('Server started on port 8080')
 })

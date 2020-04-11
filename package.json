@@ -1,0 +1,28 @@
+{
+  "name": "hatespeechrecognition",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishnu0179/HateSpeechRecognition.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishnu0179/HateSpeechRecognition/issues"
+  },
+  "homepage": "https://github.com/vishnu0179/HateSpeechRecognition#readme",
+  "engines": {
+    "node": "10.x"
+  }
+}
