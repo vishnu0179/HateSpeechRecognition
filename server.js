@@ -59,18 +59,6 @@ app.post('/userpredict', (req,res)=>{
     })
 })
 
-/*app.get('/predict',(req,res)=>{
-    let predictProcess = spawn('python3',["./predict.py"])
-    res.write('Predicting')
-    predictProcess.stdout.on('data',(data)=>{
-        res.send()
-    })
-})*/
-
-/*app.get('/',(req,res)=>{
-    res.render('index')
-})*/
-
-app.listen(8000||process.env.PORT   ,()=>{
+app.listen(8080||process.env.PORT   ,()=>{
     console.log('Server started on port 8080')
 })
