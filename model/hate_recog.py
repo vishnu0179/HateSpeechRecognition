@@ -18,8 +18,9 @@ class our_model():
     
     def __init__(self):
         
-        model = os.path.join(os.getcwd(),'model/model2')
-        vector = os.path.join(os.getcwd(),'model/vector2')
+        
+        model = os.path.join(os.getcwd(),'model/model')
+        vector = os.path.join(os.getcwd(),'model/vector')
         self.estimator = joblib.load(model)
         self.preprocessor = joblib.load(vector)
         self.sw = set(stopwords.words('english'))    # all english stopwords as
@@ -51,29 +52,13 @@ class our_model():
         TAKES INPUT AS CSV FILE AND PREDICTS AND PLOT 
         
         """
-        
-        
         # for cleaning the file
         
         file = self.cleaning(file)  
-        
-        
         vector =self.preprocessor.transform(file['tweet'])
-        
-        
-        
         proba = self.estimator.predict(vector)
-        
-        
-        
         self.no_of_items=int(file.shape[0])
        
-        
-        
-        
-        
-        
-        
         for val in proba:
             if val==0:
                 self.not_hate+=1
