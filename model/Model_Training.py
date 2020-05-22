@@ -1,51 +1,22 @@
 
 # coding: utf-8
 
-# In[2]:
-
 
 import numpy as np # linear algebra
 import pandas as pd 
 import matplotlib.pyplot as plt
 
 
-# In[31]:
 
 
 train = pd.read_csv(r"C:/users/amanr/desktop/PROJECT/Aman/train_E6oV3lV.csv")
 test = pd.read_csv(r"C:/users/amanr/desktop/PROJECT/aman/test_tweets_anuFYb8.csv")
-train.shape
 
-
-# # 0 not hate 
-# # 1 hate
-
-# In[32]:
-
-
-train
-
-
-# In[33]:
-
-
-train['label'].hist()
-plt.show()
-
-
-# In[34]:
 
 
 train['label'] = train['label'].astype('category')
 
 
-# In[35]:
-
-
-train.info()
-
-
-# In[36]:
 
 
 from nltk.stem import WordNetLemmatizer
@@ -54,14 +25,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import re
 
 
-# In[37]:
-
 
 train['text_lem'] = [''.join([WordNetLemmatizer().lemmatize(re.sub('[^A-Za-z]',' ',text)) for text in lis]) for lis in train['tweet']]
 test['text_lem'] = [''.join([WordNetLemmatizer().lemmatize(re.sub('[^A-Za-z]',' ',text)) for text in lis]) for lis in test['tweet']]
 
-
-# In[38]:
 
 
 #print(train)#['text_lem'])
@@ -69,13 +36,8 @@ train['text_lem']
 print(train.shape)
 
 
-# In[39]:
-
 
 #print(test['text_lem'])
-
-
-# In[40]:
 
 
 from sklearn.model_selection import train_test_split
@@ -84,26 +46,19 @@ from sklearn.model_selection import train_test_split
 X_train,X_test,y_train,y_test = train_test_split(train['text_lem'],train['label'])
 
 
-# In[41]:
-
 
 print(y_train)
       
 
 
-# In[42]:
-
 
 print(X_test.shape)
 
 
-# In[43]:
 
 
 print(y_train.shape)
 
-
-# In[44]:
 
 
 #from sklearn.svm import SVC
@@ -144,10 +99,8 @@ print(y_train.shape)
 print(y_test.shape)
 
 
-# In[1]:
 
-
-modelLR = LogisticRegression(C=100).fit(vect_transformed_X_train,y_train)
+modelLR = LogisticRegression().fit(vect_transformed_X_train,y_train)
 predictionsLR = modelLR.predict(vect_transformed_X_test)
 
 
@@ -156,22 +109,18 @@ print('Accuracy :',accuracy_score(y_test,predictionsLR))
 # print(y_test.shape)
 
 
-# In[50]:
-
 
 print(predictionsLR)
 
 
-# In[ ]:
 
+import pickle
 
-# import pickle
-
-# with open('model2','wb') as f:
-#     pickle.dump(modelLR,f)
+ with open('model2','wb') as f:
+     pickle.dump(modelLR,f)
     
 
-# with open('vector2','wb') as f:
-#     pickle.dump(vect,f)
+ with open('vector2','wb') as f:
+     pickle.dump(vect,f)
     
 
