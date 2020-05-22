@@ -1,6 +1,9 @@
 # HateSpeechRecognition
 
 
+*PythonNotebook for training your model is there in model folder.
+
+
 ## Introduction:
 Our project comprises of a web application and a desktop application. 
 The web application comes with two features which are followed as twitter user analysis and hashtag analysis and a desktop application which provides the feature of real time speech analysis. The feature of twitter user analysis helps to analyse previous tweets of a particular twitter handle from his/her timeline and determines the amount of negativity in the tweets. The feature of Hashtag analysis helps to get the hate percentage of tweets for that hashtag or topic by analysing previous 15000 tweets from current timestamp. 
