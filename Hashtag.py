@@ -1,4 +1,4 @@
-from model.hate_recog import our_model
+
 import tweepy
 # import os
 import jsonpickle
@@ -7,6 +7,7 @@ import sys
 import json
 from numpy import savetxt
 from fetchtweets import tweetAnalyzer
+from model.hate_recog import our_model
 
 api_key = 'IgvYuzdJzJHWHSGiubz98UGoe'
 api_secret = 'XtFcOGOOVO4rtFHgByIPUYqLt0W9VlkwqfDTAjZovkyvVFqBfl'
@@ -62,9 +63,9 @@ if(choice == 1):
     #df=tweetAnalyzer().tweets_to_data_frame(tweets=new_tweets)
     df.to_csv('hashtagt_df.csv')
     savetxt('./public/h_Tweets.txt',t_df.values,fmt='%s')
-    
     hey =our_model()
     hey.get_csv(df)
+    
     
     # df.head(10)
 
