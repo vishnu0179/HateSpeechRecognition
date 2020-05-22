@@ -73,7 +73,7 @@ if __name__ == '__main__':
     tweets = api.user_timeline(screen_name=sys.argv[1], count=200, tweet_mode="extended")
     df = tweet_analyzer.tweets_to_data_frame(tweets)
     t_df = df['dirty_tweet']
-    df.to_csv('userTweets.csv')
+    df.to_csv('./public/CSV/userTweets.csv')
     np.savetxt('./public/u_Tweets.txt',t_df.values,fmt='%s')
     print('Done')  
     hey=our_model()
