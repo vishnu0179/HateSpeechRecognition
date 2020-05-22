@@ -1,0 +1,6 @@
+node_modules
+u_Tweets.txt
+h_Tweets.txt
+hashtagt_df.csv
+userTweets.csv
+__pycache__

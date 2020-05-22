@@ -55,11 +55,6 @@ class our_model():
         # for cleaning the file
         
         file = self.cleaning(file)  
-<<<<<<< HEAD
-        
-        
-=======
->>>>>>> a231eef3f2c249b2aba3125f1a85c36eaebe6ddf
         vector =self.preprocessor.transform(file['tweet'])
         proba = self.estimator.predict(vector)
         self.no_of_items=int(file.shape[0])
