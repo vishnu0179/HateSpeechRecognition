@@ -1,0 +1,9 @@
+numpy
+matplotlib
+seaborn
+pandas
+joblib
+tweepy
+jsonpickle
+pickle5
+nltk

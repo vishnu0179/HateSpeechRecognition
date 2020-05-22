@@ -13,9 +13,14 @@ git clone https://github.com/vishnu0179/HateSpeechRecognition.git
 
 
 Use the package manager [npm](https://www.npmjs.com/get-npm) to install dependencies.
-
 ```
 npm install
+```
+
+
+Run to install dependencies.
+``` 
+pip install -r requirements.txt 
 ```
 
 
