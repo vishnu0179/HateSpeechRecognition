@@ -23,6 +23,10 @@ Run to install dependencies.
 pip install -r requirements.txt 
 ```
 
+To start the server at port 8000: (http://localhost:8000/)
+```
+npm start
+```
 
 ## Introduction:
 Our project comprises of a web application and a desktop application. 
