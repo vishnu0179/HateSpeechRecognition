@@ -4,3 +4,5 @@ public/h_Tweets.txt
 hashtagt_df.csv
 userTweets.csv
 __pycache__
+public/plot.*
+KEYS_TOKENS.py
