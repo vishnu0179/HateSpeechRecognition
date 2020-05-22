@@ -3,44 +3,26 @@
 
 *PythonNotebook for training your model is there in model folder.
 
+## Installation instructions
+
+Clone the Project
+
+```
+git clone https://github.com/vishnu0179/HateSpeechRecognition.git
+```
+
+
+Use the package manager [npm](https://www.npmjs.com/get-npm) to install dependencies.
+
+```
+npm install
+```
+
 
 ## Introduction:
 Our project comprises of a web application and a desktop application. 
 The web application comes with two features which are followed as twitter user analysis and hashtag analysis and a desktop application which provides the feature of real time speech analysis. The feature of twitter user analysis helps to analyse previous tweets of a particular twitter handle from his/her timeline and determines the amount of negativity in the tweets. The feature of Hashtag analysis helps to get the hate percentage of tweets for that hashtag or topic by analysing previous 15000 tweets from current timestamp. 
-Based on the same utilities as used by the web-app, our desktop application is designed  to provide real tiDevelop Apps for iOS and Android
-Kotlin for Java Developers
-JetBrains
-COURSE
-Free
-Developing Android Apps with App Inventor
-The Hong Kong University of Science and Technology
-COURSE
-Foundations of Objective-C App Development
-University of California, Irvine
-COURSE
-Networking and Security in iOS Applications
-University of California, Irvine
-COURSE
-Best Practices for iOS User Interface Design
-University of California, Irvine
-COURSE
-Games, Sensors and Media
-University of California, Irvine
-COURSE
-iOS Project: Transreality Game
-University of California, Irvine
-COURSE
-Capstone MOOC for "Android App Development"
-Vanderbilt University
-COURSE
-Java for Android
-Vanderbilt University
-COURSE
-Engineering Maintainabl…
-Vanderbilt University
-COURSE
-￼
-Recently Launched Guided Projectsme hate analysis of input speech. This can be used to measure variation of hate sentiments present in the speaker’s speech with respect to time. The measure of hate sentiment is depicted using a 2-D plot. In addition to this, the desktop app can apply the real time speech analysis to audio and video source files too.
+ This can be used to measure variation of hate sentiments present in the speaker’s speech with respect to time. The measure of hate sentiment is depicted using a 2-D plot. In addition to this, the desktop app can apply the real time speech analysis to audio and video source files too.
 
 
 
