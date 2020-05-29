@@ -30,7 +30,7 @@ npm start
 
 ## Introduction:
 Our project comprises of a web application and a desktop application. 
-The web application comes with two features which are followed as twitter user analysis and hashtag analysis and a desktop application which provides the feature of real time speech analysis. The feature of twitter user analysis helps to analyse previous tweets of a particular twitter handle from his/her timeline and determines the amount of negativity in the tweets. The feature of Hashtag analysis helps to get the hate percentage of tweets for that hashtag or topic by analysing previous 15000 tweets from current timestamp. 
+The web application comes with two features which are followed as twitter user analysis and hashtag analysis . The feature of twitter user analysis helps to analyse previous tweets of a particular twitter handle from his/her timeline and determines the amount of negativity in the tweets. The feature of Hashtag analysis helps to get the hate percentage of tweets for that hashtag or topic by analysing previous 15000 tweets from current timestamp. 
  This can be used to measure variation of hate sentiments present in the speaker’s speech with respect to time. The measure of hate sentiment is depicted using a 2-D plot. In addition to this, the desktop app can apply the real time speech analysis to audio and video source files too.
 
 
